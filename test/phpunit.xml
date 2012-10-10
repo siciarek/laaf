@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE phpunit>
+
+<phpunit
+        strict="true"
+        verbose="true"
+        fork="false"
+        stopOnFailure="false"
+        syntaxCheck="true"
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        convertErrorsToExceptions="true"
+        convertFailuresToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        bootstrap="bootstrap.php"
+        >
+    <filter>
+        <blacklist>
+            <directory suffix=".php">../lib/vendor</directory>
+        </blacklist>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../lib/LAAF</directory>
+            <!--<file>../lib/LAAF/Frame.class.php</file>-->
+            <!--<exclude>-->
+                <!--<directory suffix=".php">/path/to/files</directory>-->
+                <!--<file>/path/to/file</file>-->
+            <!--</exclude>-->
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" highlight="false" target="coverage" charset="UTF-8" yui="true" lowUpperBound="75" highLowerBound="90" />
+    </logging>
+
+    <testsuites>
+        <testsuite name="Sample Unit Tests">
+            <file>lib/LAAF/FrameTest.php</file>
+            <file>lib/LAAF/WritersTest.php</file>
+            <file>lib/LAAF/ReadersTest.php</file>
+        </testsuite>
+    </testsuites>
+<!--
+
+-->
+
+</phpunit>

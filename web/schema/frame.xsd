@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:laaf="http://siciarek.pl/laaf"
+           targetNamespace="http://siciarek.pl/laaf"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+        >
+
+    <xs:element name="frame" type="laaf:frameType"/>
+
+    <xs:complexType name="frameType">
+        <xs:sequence>
+            <xs:element name="success" type="laaf:successType"/>
+            <xs:element name="type" type="laaf:typeType"/>
+            <xs:element name="datetime" type="laaf:datetimeType"/>
+            <xs:element name="msg" type="laaf:msgType"/>
+            <xs:element name="auth" type="laaf:authType" minOccurs="0" />
+			<xs:element name="totalCount" type="laaf:totalCountType" minOccurs="0" />
+			<xs:element name="data" type="laaf:dataType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="successType">
+        <xs:restriction base="xs:boolean"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="typeType">
+        <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="request"/>
+            <xs:enumeration value="info"/>
+            <xs:enumeration value="warning"/>
+            <xs:enumeration value="error"/>
+            <xs:enumeration value="data"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="datetimeType">
+        <xs:restriction base="xs:dateTime"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="msgType">
+        <xs:restriction base="xs:normalizedString"/>
+    </xs:simpleType>
+
+    <xs:complexType name="authType">
+        <xs:complexContent>
+            <xs:extension base="xs:anyType"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="totalCountType">
+        <xs:restriction base="xs:nonNegativeInteger"/>
+    </xs:simpleType>
+
+    <xs:complexType name="dataType">
+        <xs:complexContent>
+            <xs:extension base="xs:anyType"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+</xs:schema>
