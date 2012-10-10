@@ -16,7 +16,9 @@ class LAAF_Writer_Xml extends LAAF_Writer_Abstract
      */
     public function format($data) {
 
-        $data["datetime"] = preg_replace("/ /", "T", $data["datetime"]);
+        if(array_key_exists("datetime", $data)) {
+            $data["datetime"] = preg_replace("/ /", "T", $data["datetime"]);
+        }
 
         $options = array(
             XML_SERIALIZER_OPTION_XML_ENCODING     => "UTF-8",
