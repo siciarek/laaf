@@ -169,7 +169,7 @@ class ReadersTest extends PHPUnit_Framework_TestCase
     function readerJsonExceptionsDataProvider()
     {
         return array(
-            array("[]", "Undefined index: datetime"),
+            array("[]", "DOMDocument::schemaValidate(): Element '{" . LAAF_Writer_Xml::NS . "}frame': Missing child element(s). Expected is ( {" . LAAF_Writer_Xml::NS . "}success )."),
             array('{"a":1', "LAAF_Reader_Json error: Syntax error"),
             array('{"success":true,"type":"info","datetime":"WRONG DATETIME","msg":"OK","data":{}}',
                 "DOMDocument::schemaValidate(): Element '{" . LAAF_Writer_Xml::NS . "}datetime': 'WRONGTDATETIME' is not a valid value of the atomic type '{" . LAAF_Writer_Xml::NS . "}datetimeType'."
