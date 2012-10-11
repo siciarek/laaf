@@ -5,6 +5,8 @@
  *
  * @package LAAF
  */
+date_default_timezone_set("Europe/Warsaw");
+
 require_once __DIR__ . "/../vendor/XML_Serializer-0.20.2/XML/Serializer.php";
 require_once __DIR__ . "/../vendor/XML_Serializer-0.20.2/XML/Unserializer.php";
 require_once __DIR__ . "/Config.class.php";
