@@ -36,8 +36,8 @@
 
     <testsuites>
         <testsuite name="Sample Unit Tests">
-            <file>lib/LAAF/FrameTest.php</file>
-            <file>lib/LAAF/WritersTest.php</file>
+            <!--<file>lib/LAAF/FrameTest.php</file>-->
+            <!--<file>lib/LAAF/WritersTest.php</file>-->
             <file>lib/LAAF/ReadersTest.php</file>
         </testsuite>
     </testsuites>
