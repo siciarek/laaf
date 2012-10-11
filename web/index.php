@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . '/../lib/LAAF/Config.class.php';
+include_once __DIR__ . '/../lib/LAAF/bootstrap.php';
 
 $msg = "LAAF - Light As A Feather Webservice Protocol";
 
