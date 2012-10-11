@@ -1,44 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project version="2.0.0a10" title="">
-  <file path="bootstrap.php" hash="d425c4afa9fd18996b23a6097411a652" package="LAAF">
+  <file path="bootstrap.php" hash="135d93116cfc5ecd99f831591bae1726" package="LAAF">
     <docblock line="2">
       <description><![CDATA[LAAF/bootstrap.php
 LAAF library bootstrap]]></description>
       <long-description><![CDATA[]]></long-description>
       <tag line="2" name="package" description="LAAF"/>
     </docblock>
-    <include line="8" type="Require Once" package="Default">
-      <name/>
-    </include>
-    <include line="9" type="Require Once" package="Default">
-      <name/>
-    </include>
     <include line="10" type="Require Once" package="Default">
       <name/>
     </include>
     <include line="11" type="Require Once" package="Default">
       <name/>
     </include>
-    <include line="12" type="Require Once" package="Default">
-      <name/>
-    </include>
     <include line="13" type="Require Once" package="Default">
-      <name/>
+      <name>Symfony/Component/Yaml/Parser.php</name>
     </include>
     <include line="14" type="Require Once" package="Default">
-      <name/>
+      <name>Symfony/Component/Yaml/Inline.php</name>
     </include>
     <include line="15" type="Require Once" package="Default">
-      <name/>
+      <name>Symfony/Component/Yaml/Unescaper.php</name>
     </include>
     <include line="16" type="Require Once" package="Default">
-      <name/>
+      <name>Symfony/Component/Yaml/Escaper.php</name>
     </include>
     <include line="17" type="Require Once" package="Default">
+      <name>Symfony/Component/Yaml/Yaml.php</name>
+    </include>
+    <include line="19" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="20" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="21" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="22" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="23" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="24" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="25" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="26" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="27" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="28" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="33" type="Require Once" package="Default">
       <name/>
     </include>
   </file>
-  <file path="Config.class.php" hash="d1e2fdd89578ed733b716290a04be8de" package="Default">
+  <file path="Config.class.php" hash="80549533d8dffc5c6dd71c2a3b7d3ffe" package="Default">
     <docblock line="2">
       <description><![CDATA[LAAF/Config.class.php]]></description>
       <long-description><![CDATA[]]></long-description>
@@ -63,20 +87,113 @@ LAAF library bootstrap]]></description>
         <full_name>NS_PREFIX</full_name>
         <value><![CDATA["laaf"]]></value>
       </constant>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="21" package="LAAF">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="18" package="LAAF">
+        <name>getServiceMap</name>
+        <full_name>getServiceMap</full_name>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="34" package="LAAF">
         <name>getSchema</name>
         <full_name>getSchema</full_name>
-        <docblock line="16">
+        <docblock line="29">
           <description><![CDATA[Returns path to LAAF XML Schema file.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="16" name="return" description="path to LAAF XML Schema file" type="string">
+          <tag line="29" name="return" description="path to LAAF XML Schema file" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
     </class>
+    <parse_markers>
+      <error line="16" code="50018">No DocBlock was found for property $service_map</error>
+      <error line="18" code="50010">No DocBlock was found for method getServiceMap()</error>
+    </parse_markers>
   </file>
-  <file path="Frame.class.php" hash="ec344c2742dd768354f9f030a87714f4" package="Default">
+  <file path="Dispatcher.class.php" hash="4c95107587088dee0892b03145ae0562" package="Default">
+    <docblock line="2">
+      <description><![CDATA[LAAF/Dispatcher.class.php]]></description>
+      <long-description><![CDATA[]]></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="global" line="11" package="LAAF">
+      <extends/>
+      <name>LAAF_Dispatcher</name>
+      <full_name>\LAAF_Dispatcher</full_name>
+      <docblock line="5">
+        <description><![CDATA[Inner services dispatcher (controller)]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="5" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="5" name="package" description="LAAF"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="67" package="LAAF">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="64">
+          <description><![CDATA[class constructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="72" package="LAAF">
+        <name>assignService</name>
+        <full_name>assignService</full_name>
+        <argument line="72">
+          <name>$service</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="72">
+          <name>$data</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="19" code="50010">No DocBlock was found for method work()</error>
+      <error line="72" code="50010">No DocBlock was found for method assignService()</error>
+    </parse_markers>
+  </file>
+  <file path="Exceptions.class.php" hash="fefa82867c573f7d625f700e5c14bcfe" package="Default">
+    <docblock line="2">
+      <description><![CDATA[LAAF/Exception.class.php]]></description>
+      <long-description><![CDATA[]]></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="global" line="12" package="LAAF\Exception">
+      <extends>\Exception</extends>
+      <name>LAAF_Exception</name>
+      <full_name>\LAAF_Exception</full_name>
+      <docblock line="5">
+        <description><![CDATA[Generic LAAF Exception]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="5" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="5" name="package" description="LAAF"/>
+        <tag line="5" name="subpackage" description="Exception"/>
+      </docblock>
+    </class>
+    <class final="false" abstract="false" namespace="global" line="23" package="LAAF\Exception">
+      <extends>\LAAF_Exception</extends>
+      <name>LAAF_Exception_ServiceNotSupported</name>
+      <full_name>\LAAF_Exception_ServiceNotSupported</full_name>
+      <docblock line="16">
+        <description><![CDATA[Service not supported LAAF Exception]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="16" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="16" name="package" description="LAAF"/>
+        <tag line="16" name="subpackage" description="Exception"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="24" package="LAAF\Exception">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <argument line="24">
+          <name>$service</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="24" code="50010">No DocBlock was found for method __construct()</error>
+    </parse_markers>
+  </file>
+  <file path="Frame.class.php" hash="d2099eae78c945596712f10f77ced2fa" package="Default">
     <docblock line="2">
       <description><![CDATA[LAAF/Frame.class.php]]></description>
       <long-description><![CDATA[]]></long-description>
@@ -357,7 +474,7 @@ Protocol frames provider]]></description>
       </method>
     </class>
   </file>
-  <file path="Reader\Xml.class.php" hash="6777b04ac7d686afb2536b221b9f9bec" package="Default">
+  <file path="Reader\Xml.class.php" hash="00d9e4b4dbee12fef26b5f44190586f9" package="Default">
     <docblock line="2">
       <description><![CDATA[LAAF/Reader/Xml.class.php]]></description>
       <long-description><![CDATA[]]></long-description>
@@ -563,6 +680,7 @@ Protocol frames provider]]></description>
   </file>
   <package name="Default" full_name="Default"/>
   <package name="LAAF" full_name="LAAF">
+    <package name="Exception" full_name="LAAF\Exception"/>
     <package name="Reader" full_name="LAAF\Reader"/>
     <package name="Writer" full_name="LAAF\Writer"/>
   </package>
