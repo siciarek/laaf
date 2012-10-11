@@ -1,9 +1,19 @@
 <?php
 /**
+ * LAAF/Writer/Json.class.php
+ */
+/**
  * LAAF Protocol frames JSON writer
+ *
+ * @author Jacek Siciarek <siciarek@gmail.com>
+ * @package LAAF
+ * @subpackage Writer
  */
 class LAAF_Writer_Json extends LAAF_Writer_Abstract
 {
+    /**
+     * @var string JSON format mime type.
+     */
     protected $mime_type = "application/json";
 
     /**

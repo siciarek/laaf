@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="all">
+
+    <condition property="test.app" value="phpunit.bat" else="phpunit">
+        <os family="windows" />
+    </condition>
+    <property name="test.dir" location="test"/>
+    <property name="test.target" location="test/coverage"/>
+
+    <condition property="doc.app" value="phpdoc.bat" else="phpdoc">
+        <os family="windows" />
+    </condition>
+    <property name="doc.source" location="lib/LAAF"/>
+    <property name="doc.target" location="doc/phpdoc"/>
+    <property name="doc.template" value="responsive"/>
+
+    <target name="all" depends="cc, doc, test" />
+
+    <target name="cc">
+        <delete verbose="true" includeemptydirs="true">
+            <fileset dir="${test.target}" includes="**/*"/>
+        </delete>
+        <delete verbose="true" includeemptydirs="true">
+            <fileset dir="${doc.target}" includes="**/*"/>
+        </delete>
+    </target>
+
+    <target name="test" depends="cc">
+        <exec executable="${test.app}" dir="${test.dir}"/>
+    </target>
+
+    <target name="doc" depends="cc">
+        <exec executable="${doc.app}">
+            <arg line="--visibility public,protected --target ${doc.target} --directory ${doc.source} --template ${doc.template}"/>
+        </exec>
+    </target>
+
+
+</project>

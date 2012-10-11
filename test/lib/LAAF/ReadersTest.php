@@ -31,7 +31,7 @@ class ReadersTest extends PHPUnit_Framework_TestCase
         return array(
 
             array(LAAF_Frame::getData("UsersList", $users), '<?xml version="1.0" encoding="UTF-8"?>
-<laaf:frame xmlns:laaf="' . LAAF_Writer_Xml::NS . '">
+<laaf:frame xmlns:laaf="' . Config::NS . '">
     <laaf:success>1</laaf:success>
     <laaf:type>data</laaf:type>
     <laaf:datetime>1966-10-21T15:10:00</laaf:datetime>
@@ -53,7 +53,7 @@ class ReadersTest extends PHPUnit_Framework_TestCase
 '),
 
             array(LAAF_Frame::getRequest("GetUser", array("id" => 123)), '<?xml version="1.0" encoding="UTF-8"?>
-<laaf:frame xmlns:laaf="' . LAAF_Writer_Xml::NS . '">
+<laaf:frame xmlns:laaf="' . Config::NS . '">
     <laaf:success>1</laaf:success>
     <laaf:type>request</laaf:type>
     <laaf:datetime>1966-10-21T15:10:00</laaf:datetime>
@@ -65,7 +65,7 @@ class ReadersTest extends PHPUnit_Framework_TestCase
 '),
 
             array(LAAF_Frame::getInfo(), '<?xml version="1.0" encoding="UTF-8"?>
-<laaf:frame xmlns:laaf="' . LAAF_Writer_Xml::NS . '">
+<laaf:frame xmlns:laaf="' . Config::NS . '">
     <laaf:success>1</laaf:success>
     <laaf:type>info</laaf:type>
     <laaf:datetime>1966-10-21T15:10:00</laaf:datetime>
@@ -74,7 +74,7 @@ class ReadersTest extends PHPUnit_Framework_TestCase
 </laaf:frame>
 '),
             array(LAAF_Frame::getError(), '<?xml version="1.0" encoding="UTF-8"?>
-<laaf:frame xmlns:laaf="' . LAAF_Writer_Xml::NS . '">
+<laaf:frame xmlns:laaf="' . Config::NS . '">
     <laaf:success>0</laaf:success>
     <laaf:type>error</laaf:type>
     <laaf:datetime>1966-10-21T15:10:00</laaf:datetime>
@@ -83,7 +83,7 @@ class ReadersTest extends PHPUnit_Framework_TestCase
 </laaf:frame>
 '),
             array(LAAF_Frame::getWarning("No result found."), '<?xml version="1.0" encoding="UTF-8"?>
-<laaf:frame xmlns:laaf="' . LAAF_Writer_Xml::NS . '">
+<laaf:frame xmlns:laaf="' . Config::NS . '">
     <laaf:success>0</laaf:success>
     <laaf:type>warning</laaf:type>
     <laaf:datetime>1966-10-21T15:10:00</laaf:datetime>
@@ -108,7 +108,7 @@ class ReadersTest extends PHPUnit_Framework_TestCase
     function testXmlException()
     {
         $input = '<?xml version="1.0" encoding="UTF-8"?>
-<laaf:frame xmlns:laaf="' . LAAF_Writer_Xml::NS . '">
+<laaf:frame xmlns:laaf="' . Config::NS . '">
     <laaf:success>4</laaf:success>
     <laaf:type>info</laaf:type>
     <laaf:datetime>1966-10-21T15:10:00</laaf:datetime>
@@ -125,8 +125,8 @@ class ReadersTest extends PHPUnit_Framework_TestCase
         }
         catch(Exception $e) {
             $expected = "DOMDocument::schemaValidate(): "
-            . "Element '{" . LAAF_Writer_Xml::NS . "}success': '4' "
-            . "is not a valid value of the atomic type '{" . LAAF_Writer_Xml::NS . "}successType'.";
+            . "Element '{" . Config::NS . "}success': '4' "
+            . "is not a valid value of the atomic type '{" . Config::NS . "}successType'.";
 
             $given = $e->getMessage();
 
@@ -169,10 +169,10 @@ class ReadersTest extends PHPUnit_Framework_TestCase
     function readerJsonExceptionsDataProvider()
     {
         return array(
-            array("[]", "DOMDocument::schemaValidate(): Element '{" . LAAF_Writer_Xml::NS . "}frame': Missing child element(s). Expected is ( {" . LAAF_Writer_Xml::NS . "}success )."),
+            array("[]", "DOMDocument::schemaValidate(): Element '{" . Config::NS . "}frame': Missing child element(s). Expected is ( {" . Config::NS . "}success )."),
             array('{"a":1', "LAAF_Reader_Json error: Syntax error"),
             array('{"success":true,"type":"info","datetime":"WRONG DATETIME","msg":"OK","data":{}}',
-                "DOMDocument::schemaValidate(): Element '{" . LAAF_Writer_Xml::NS . "}datetime': 'WRONGTDATETIME' is not a valid value of the atomic type '{" . LAAF_Writer_Xml::NS . "}datetimeType'."
+                "DOMDocument::schemaValidate(): Element '{" . Config::NS . "}datetime': 'WRONGTDATETIME' is not a valid value of the atomic type '{" . Config::NS . "}datetimeType'."
             ),
         );
     }

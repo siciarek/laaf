@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a10" title="">
+  <file path="bootstrap.php" hash="d425c4afa9fd18996b23a6097411a652" package="LAAF">
+    <docblock line="2">
+      <description><![CDATA[LAAF/bootstrap.php
+LAAF library bootstrap]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="package" description="LAAF"/>
+    </docblock>
+    <include line="8" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="9" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="10" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="11" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="12" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="13" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="14" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="15" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="16" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="17" type="Require Once" package="Default">
+      <name/>
+    </include>
+  </file>
+  <file path="Config.class.php" hash="d1e2fdd89578ed733b716290a04be8de" package="Default">
+    <docblock line="2">
+      <description><![CDATA[LAAF/Config.class.php]]></description>
+      <long-description><![CDATA[]]></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="global" line="11" package="LAAF">
+      <extends/>
+      <name>Config</name>
+      <full_name>\Config</full_name>
+      <docblock line="5">
+        <description><![CDATA[Configuration provider]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="5" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="5" name="package" description="LAAF"/>
+      </docblock>
+      <constant namespace="global" line="13" package="LAAF">
+        <name>NS</name>
+        <full_name>NS</full_name>
+        <value><![CDATA["http://laaf.siciarek.pl"]]></value>
+      </constant>
+      <constant namespace="global" line="14" package="LAAF">
+        <name>NS_PREFIX</name>
+        <full_name>NS_PREFIX</full_name>
+        <value><![CDATA["laaf"]]></value>
+      </constant>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="21" package="LAAF">
+        <name>getSchema</name>
+        <full_name>getSchema</full_name>
+        <docblock line="16">
+          <description><![CDATA[Returns path to LAAF XML Schema file.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="16" name="return" description="path to LAAF XML Schema file" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="Frame.class.php" hash="ec344c2742dd768354f9f030a87714f4" package="Default">
+    <docblock line="2">
+      <description><![CDATA[LAAF/Frame.class.php]]></description>
+      <long-description><![CDATA[]]></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="global" line="12" package="LAAF">
+      <extends/>
+      <name>LAAF_Frame</name>
+      <full_name>\LAAF_Frame</full_name>
+      <docblock line="5">
+        <description><![CDATA[LAAF - Light As A Feather Webservice Protocol
+Protocol frames provider]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="5" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="5" name="package" description="LAAF"/>
+      </docblock>
+      <property final="false" static="true" visibility="public" line="17" namespace="global" package="Default">
+        <name>$auth</name>
+        <default><![CDATA[array()]]></default>
+        <docblock line="14">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="14" name="var" description="User authentication data" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="true" visibility="public" line="22" namespace="global" package="Default">
+        <name>$date_format</name>
+        <default><![CDATA["Y-m-d H:i:s"]]></default>
+        <docblock line="19">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="19" name="var" description="Frame datetime format" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="true" visibility="public" line="27" namespace="global" package="Default">
+        <name>$datetime</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="24">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="24" name="var" description="Fixed frame datetime" type="string|null">
+            <type by_reference="false">string</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="33" package="LAAF">
+        <name>setAuth</name>
+        <full_name>setAuth</full_name>
+        <docblock line="29">
+          <description><![CDATA[User authentication data setter]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="29" name="param" description="User authentication data" type="array" variable="$auth">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="33">
+          <name>$auth</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="45" package="LAAF">
+        <name>getRequest</name>
+        <full_name>getRequest</full_name>
+        <docblock line="38">
+          <description><![CDATA[Returns request frame]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="38" name="param" description="Name of the request, name of the service is recommended, ie. &quot;GetUsersList&quot;" type="\$msg" variable="$msg">
+            <type by_reference="false">\$msg</type>
+          </tag>
+          <tag line="38" name="param" description="[optional] Request data, object containing request parameters is recommended." type="mixed" variable="$data">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="38" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="45">
+          <name>$msg</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="45">
+          <name>$data</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="57" package="LAAF">
+        <name>getInfo</name>
+        <full_name>getInfo</full_name>
+        <docblock line="50">
+          <description><![CDATA[Returns info frame]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="50" name="param" description="[optional] Info frame message ie. &quot;OK&quot;" type="\$msg" variable="$msg">
+            <type by_reference="false">\$msg</type>
+          </tag>
+          <tag line="50" name="param" description="[optional] object containing some data (key, value format is recommended)." type="mixed" variable="$data">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="50" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="57">
+          <name>$msg</name>
+          <default><![CDATA["OK"]]></default>
+          <type/>
+        </argument>
+        <argument line="57">
+          <name>$data</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="69" package="LAAF">
+        <name>getWarning</name>
+        <full_name>getWarning</full_name>
+        <docblock line="62">
+          <description><![CDATA[Returns warning frame]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="62" name="param" description="Warning message ie. &quot;No result found.&quot;" type="\$msg" variable="$msg">
+            <type by_reference="false">\$msg</type>
+          </tag>
+          <tag line="62" name="param" description="[optional] object containing some data (key, value format is recommended)." type="mixed" variable="$data">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="62" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="69">
+          <name>$msg</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="69">
+          <name>$data</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="81" package="LAAF">
+        <name>getError</name>
+        <full_name>getError</full_name>
+        <docblock line="74">
+          <description><![CDATA[Returns warning frame]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="74" name="param" description="[optional] Error message ie. &quot;Unexpected error&quot;" type="\$msg" variable="$msg">
+            <type by_reference="false">\$msg</type>
+          </tag>
+          <tag line="74" name="param" description="[optional] object containing some data (key, value format is recommended)." type="mixed" variable="$data">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="74" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="81">
+          <name>$msg</name>
+          <default><![CDATA["Unexpected error"]]></default>
+          <type/>
+        </argument>
+        <argument line="81">
+          <name>$data</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="93" package="LAAF">
+        <name>getData</name>
+        <full_name>getData</full_name>
+        <docblock line="86">
+          <description><![CDATA[Returns data frame]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="86" name="param" description="Data frame message ie. &quot;Users list&quot;" type="\$msg" variable="$msg">
+            <type by_reference="false">\$msg</type>
+          </tag>
+          <tag line="86" name="param" description="[optional] object containing some data (key, value format is recommended)." type="mixed" variable="$data">
+            <type by_reference="false">mixed</type>
+          </tag>
+          <tag line="86" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="93">
+          <name>$msg</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="93">
+          <name>$data</name>
+          <default><![CDATA[array()]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Reader\Abstract.class.php" hash="5dd2cae37b22cc8df531e3216d3c86b9" package="Default">
+    <docblock line="2">
+      <description><![CDATA[LAAF/Reader/Abstract.class.php]]></description>
+      <long-description><![CDATA[]]></long-description>
+    </docblock>
+    <class final="true" abstract="true" namespace="global" line="12" package="LAAF\Reader">
+      <extends/>
+      <name>LAAF_Reader_Abstract</name>
+      <full_name>\LAAF_Reader_Abstract</full_name>
+      <docblock line="5">
+        <description><![CDATA[Abstract class for LAAF Readers]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="5" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="5" name="package" description="LAAF"/>
+        <tag line="5" name="subpackage" description="Reader"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="20" package="LAAF\Reader">
+        <name>read</name>
+        <full_name>read</full_name>
+        <docblock line="14">
+          <description><![CDATA[Read method should be implemented in child class]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="14" name="param" description="string" type="\$input" variable="$input">
+            <type by_reference="false">\$input</type>
+          </tag>
+          <tag line="14" name="throws" description="" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="20">
+          <name>$input</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Reader\Json.class.php" hash="0c8581721a50098da74caae6295bdd22" package="Default">
+    <docblock line="2">
+      <description><![CDATA[LAAF/Reader/Json.class.php]]></description>
+      <long-description><![CDATA[]]></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="global" line="13" package="LAAF\Reader">
+      <extends>\LAAF_Reader_Abstract</extends>
+      <name>LAAF_Reader_Json</name>
+      <full_name>\LAAF_Reader_Json</full_name>
+      <docblock line="5">
+        <description><![CDATA[LAAF Protocol frames JSON Reader]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="5" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="5" name="package" description="LAAF"/>
+        <tag line="5" name="subpackage" description="Reader"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="21" package="LAAF\Reader">
+        <name>read</name>
+        <full_name>read</full_name>
+        <docblock line="15">
+          <description><![CDATA[Returns LAAF data]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="15" name="param" description="JSON encoded data" type="string" variable="$input">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="15" name="return" description="LAAF frame" type="array|void">
+            <type by_reference="false">array</type>
+            <type by_reference="false">void</type>
+          </tag>
+          <tag line="15" name="throws" description="when xml schema validation fails" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="21">
+          <name>$input</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Reader\Xml.class.php" hash="6777b04ac7d686afb2536b221b9f9bec" package="Default">
+    <docblock line="2">
+      <description><![CDATA[LAAF/Reader/Xml.class.php]]></description>
+      <long-description><![CDATA[]]></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="global" line="12" package="LAAF\Reader">
+      <extends>\LAAF_Reader_Abstract</extends>
+      <name>LAAF_Reader_Xml</name>
+      <full_name>\LAAF_Reader_Xml</full_name>
+      <docblock line="5">
+        <description><![CDATA[LAAF Protocol frames Xml Reader]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="5" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="5" name="package" description="LAAF"/>
+        <tag line="5" name="subpackage" description="Reader"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="20" package="LAAF\Reader">
+        <name>read</name>
+        <full_name>read</full_name>
+        <docblock line="14">
+          <description><![CDATA[Returns LAAF data]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="14" name="param" description="XML encoded data" type="string" variable="$input">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="14" name="return" description="LAAF frame" type="array|void">
+            <type by_reference="false">array</type>
+            <type by_reference="false">void</type>
+          </tag>
+          <tag line="14" name="throws" description="when xml schema validation fails" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="20">
+          <name>$input</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Writer\Abstract.class.php" hash="04ed72d5d4f25ec4cff4479729c07f0f" package="Default">
+    <docblock line="2">
+      <description><![CDATA[LAAF/Writer/Abstract.class.php]]></description>
+      <long-description><![CDATA[]]></long-description>
+    </docblock>
+    <class final="true" abstract="true" namespace="global" line="12" package="LAAF\Writer">
+      <extends/>
+      <name>LAAF_Writer_Abstract</name>
+      <full_name>\LAAF_Writer_Abstract</full_name>
+      <docblock line="5">
+        <description><![CDATA[Abstract class for LAAF Writers]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="5" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="5" name="package" description="LAAF"/>
+        <tag line="5" name="subpackage" description="Writer"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="17" namespace="global" package="Default">
+        <name>$mime_type</name>
+        <default><![CDATA["application/octet-stream"]]></default>
+        <docblock line="14">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="14" name="var" description="General format mime type." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="24" package="LAAF\Writer">
+        <name>getMimeType</name>
+        <full_name>getMimeType</full_name>
+        <docblock line="19">
+          <description><![CDATA[Returns Writer mime type]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="19" name="return" description="Mime type of current writer" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="34" package="LAAF\Writer">
+        <name>format</name>
+        <full_name>format</full_name>
+        <docblock line="28">
+          <description><![CDATA[Format method should be implemented in child class]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="28" name="param" description="array" type="\$data" variable="$data">
+            <type by_reference="false">\$data</type>
+          </tag>
+          <tag line="28" name="throws" description="" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="34">
+          <name>$data</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Writer\Json.class.php" hash="8e0e4eb515a74a6683c165e4578ff283" package="Default">
+    <docblock line="2">
+      <description><![CDATA[LAAF/Writer/Json.class.php]]></description>
+      <long-description><![CDATA[]]></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="global" line="12" package="LAAF\Writer">
+      <extends>\LAAF_Writer_Abstract</extends>
+      <name>LAAF_Writer_Json</name>
+      <full_name>\LAAF_Writer_Json</full_name>
+      <docblock line="5">
+        <description><![CDATA[LAAF Protocol frames JSON writer]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="5" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="5" name="package" description="LAAF"/>
+        <tag line="5" name="subpackage" description="Writer"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="17" namespace="global" package="Default">
+        <name>$mime_type</name>
+        <default><![CDATA["application/json"]]></default>
+        <docblock line="14">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="14" name="var" description="JSON format mime type." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="26" package="LAAF\Writer">
+        <name>format</name>
+        <full_name>format</full_name>
+        <docblock line="19">
+          <description><![CDATA[Returns LAAF frame in JSON format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="19" name="param" description="array frame data" type="\$data" variable="$data">
+            <type by_reference="false">\$data</type>
+          </tag>
+          <tag line="19" name="return" description="frame in JSON format" type="string|void">
+            <type by_reference="false">string</type>
+            <type by_reference="false">void</type>
+          </tag>
+          <tag line="19" name="throws" description="when xml schema validation fails" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="26">
+          <name>$data</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Writer\Xml.class.php" hash="f4e3b5eff936ca5bd54ae76a759e91b2" package="Default">
+    <docblock line="2">
+      <description><![CDATA[LAAF/Writer/Xml.class.php]]></description>
+      <long-description><![CDATA[]]></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="global" line="12" package="LAAF\Writer">
+      <extends>\LAAF_Writer_Abstract</extends>
+      <name>LAAF_Writer_Xml</name>
+      <full_name>\LAAF_Writer_Xml</full_name>
+      <docblock line="5">
+        <description><![CDATA[LAAF Protocol frames XML writer]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="5" name="author" description="Jacek Siciarek &lt;siciarek@gmail.com&gt;"/>
+        <tag line="5" name="package" description="LAAF"/>
+        <tag line="5" name="subpackage" description="Writer"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="17" namespace="global" package="Default">
+        <name>$mime_type</name>
+        <default><![CDATA["application/xml"]]></default>
+        <docblock line="14">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="14" name="var" description="XML format mime type." type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="25" package="LAAF\Writer">
+        <name>format</name>
+        <full_name>format</full_name>
+        <docblock line="19">
+          <description><![CDATA[Returns LAAF frame formated in XML]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="19" name="param" description="frame data" type="\$data" variable="$data">
+            <type by_reference="false">\$data</type>
+          </tag>
+          <tag line="19" name="return" description="frame in XML format" type="string|void">
+            <type by_reference="false">string</type>
+            <type by_reference="false">void</type>
+          </tag>
+          <tag line="19" name="throws" description="when xml schema validation fails" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="25">
+          <name>$data</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="LAAF" full_name="LAAF">
+    <package name="Reader" full_name="LAAF\Reader"/>
+    <package name="Writer" full_name="LAAF\Writer"/>
+  </package>
+  <namespace name="global" full_name="global"/>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>

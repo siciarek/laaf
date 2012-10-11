@@ -1,6 +1,13 @@
 <?php
 /**
- * LAAF Protocol frames XML Reader
+ * LAAF/Reader/Xml.class.php
+ */
+/**
+ * LAAF Protocol frames Xml Reader
+ *
+ * @author Jacek Siciarek <siciarek@gmail.com>
+ * @package LAAF
+ * @subpackage Reader
  */
 class LAAF_Reader_Xml extends LAAF_Reader_Abstract
 {

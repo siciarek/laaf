@@ -1,12 +1,20 @@
 <?php
 /**
+ * LAAF/Writer/Xml.class.php
+ */
+/**
  * LAAF Protocol frames XML writer
+ *
+ * @author Jacek Siciarek <siciarek@gmail.com>
+ * @package LAAF
+ * @subpackage Writer
  */
 class LAAF_Writer_Xml extends LAAF_Writer_Abstract
 {
+    /**
+     * @var string XML format mime type.
+     */
     protected $mime_type = "application/xml";
-    const NS = "http://siciarek.pl/laaf";
-    const NS_PREFIX = "laaf";
 
     /**
      * Returns LAAF frame formated in XML
@@ -28,7 +36,7 @@ class LAAF_Writer_Xml extends LAAF_Writer_Abstract
             XML_SERIALIZER_OPTION_INDENT           => "    ",
             XML_SERIALIZER_OPTION_LINEBREAKS       => "\n",
             XML_SERIALIZER_OPTION_MODE             => XML_SERIALIZER_MODE_DEFAULT,
-            XML_SERIALIZER_OPTION_NAMESPACE        => array(self::NS_PREFIX, self::NS),
+            XML_SERIALIZER_OPTION_NAMESPACE        => array(Config::NS_PREFIX, Config::NS),
         );
 
         $serializer = new XML_Serializer($options);
@@ -37,7 +45,7 @@ class LAAF_Writer_Xml extends LAAF_Writer_Abstract
         $temp = $serializer->getSerializedData();
 
 
-        $frame = preg_replace("#(</?)(" . self::NS_PREFIX . ":){2}#", "$1".self::NS_PREFIX . ":", $temp);
+        $frame = preg_replace("#(</?)(" . Config::NS_PREFIX . ":){2}#", "$1".Config::NS_PREFIX . ":", $temp);
 
         $xml = new DOMDocument("1.0", "UTF-8");
         $xml->loadXML($frame);

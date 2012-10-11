@@ -1,7 +1,15 @@
 <?php
 /**
- * LAAF Protocol frames JSON Reader
+ * LAAF/Reader/Json.class.php
  */
+/**
+ * LAAF Protocol frames JSON Reader
+ *
+ * @author Jacek Siciarek <siciarek@gmail.com>
+ * @package LAAF
+ * @subpackage Reader
+ */
+
 class LAAF_Reader_Json extends LAAF_Reader_Abstract
 {
     /**

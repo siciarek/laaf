@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:laaf="http://siciarek.pl/laaf"
-           targetNamespace="http://siciarek.pl/laaf"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:laaf="http://laaf.siciarek.pl"
+        targetNamespace="http://laaf.siciarek.pl"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified"
         >
 
     <xs:element name="frame" type="laaf:frameType"/>
@@ -15,9 +15,11 @@
             <xs:element name="type" type="laaf:typeType"/>
             <xs:element name="datetime" type="laaf:datetimeType"/>
             <xs:element name="msg" type="laaf:msgType"/>
-            <xs:element name="auth" type="laaf:authType" minOccurs="0" />
-			<xs:element name="totalCount" type="laaf:totalCountType" minOccurs="0" />
-			<xs:element name="data" type="laaf:dataType"/>
+            <xs:element name="auth" type="laaf:authType" minOccurs="0"/>
+            <xs:element name="totalCount" type="laaf:totalCountType" minOccurs="0"/>
+            <xs:choice>
+                <xs:element name="data" type="laaf:sdataType" nillable="true"/>
+            </xs:choice>
         </xs:sequence>
     </xs:complexType>
 
@@ -53,7 +55,19 @@
         <xs:restriction base="xs:nonNegativeInteger"/>
     </xs:simpleType>
 
-    <xs:complexType name="dataType">
+    <xs:complexType name="sdataType">
+        <xs:complexContent>
+            <xs:extension base="xs:anyType"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="xdataType">
+        <xs:sequence>
+            <xs:element name="entity" minOccurs="0" maxOccurs="unbounded" type="laaf:entityType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="entityType">
         <xs:complexContent>
             <xs:extension base="xs:anyType"/>
         </xs:complexContent>
