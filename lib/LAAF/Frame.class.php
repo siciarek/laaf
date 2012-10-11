@@ -118,7 +118,7 @@ class LAAF_Frame
      * @return array LAAF Frame structure
      * @throws Exception
      */
-    private function getFrame($msg, $type, $data)
+    private static   function getFrame($msg, $type, $data)
     {
         if ($data === null) {
             $data = new stdClass();

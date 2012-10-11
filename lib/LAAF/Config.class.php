@@ -10,8 +10,21 @@
  */
 class Config
 {
-    const NS = "http://laaf.siciarek.pl";
+    const NS        = "http://laaf.siciarek.pl";
     const NS_PREFIX = "laaf";
+
+    private static $service_map = null;
+
+    public static function getServiceMap()
+    {
+        if (self::$service_map === null) {
+            $service_map_file  = __DIR__ . "/../Service/config/map.yml";
+            $temp              = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($service_map_file));
+            self::$service_map = $temp["ServiceMap"];
+        }
+
+        return self::$service_map;
+    }
 
     /**
      * Returns path to LAAF XML Schema file.

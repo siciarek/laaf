@@ -20,12 +20,18 @@ class LAAF_Reader_Xml extends LAAF_Reader_Abstract
     public function read($input)
     {
         $xml = new DOMDocument("1.0", "UTF-8");
-        $xml->loadXML($input);
+        @$xml->loadXML($input);
 
-        try {
-            $xml->schemaValidate(Config::getSchema());
-        } catch (Exception $e) {
-            throw $e;
+        $error = error_get_last();
+        if($error) {
+            throw new Exception($error["message"], $error["type"]);
+        }
+
+        @$xml->schemaValidate(Config::getSchema());
+        $error = error_get_last();
+
+        if($error) {
+            throw new Exception($error["message"], $error["type"]);
         }
 
         $input = $xml->saveXML();

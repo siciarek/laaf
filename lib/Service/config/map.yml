@@ -1,0 +1,12 @@
+---
+ServiceMap:
+  UsersList:
+    class: User
+    method: getList
+    params: ~
+    returns: array
+  UserDetails:
+    class: User
+    method: getUser
+    params: {id: "^[1-9]\d*$" }
+    returns: object
