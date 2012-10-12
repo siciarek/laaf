@@ -1,0 +1,11 @@
+{
+    "success": true,
+    "type": "info",
+    "datetime": "1966-10-21 15:10:00",
+    "msg": "UserDetails",
+    "data": {
+        "id": 45,
+        "first_name": "John",
+        "last_name": "Doe"
+    }
+}
