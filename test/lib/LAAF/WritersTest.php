@@ -98,7 +98,15 @@ class WritersTest extends PHPUnit_Framework_TestCase
      */
     function testXml($data, $expected) {
         $w = new LAAF_Writer_Xml();
-        $this->assertEquals($expected, $w->format($data));
+
+        try {
+            $given = $w->format($data);
+        }
+        catch(Exception $e) {
+            $this->assertTrue(false, $e->getMessage());
+        }
+
+            $this->assertEquals($expected, $given);
     }
 
     function testXmlException() {

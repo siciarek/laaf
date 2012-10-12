@@ -98,14 +98,13 @@ class ReadersTest extends PHPUnit_Framework_TestCase
      * @dataProvider readerXmlDataProvider
      * @param $expected
      */
-    function xtestXml($expected, $input)
+    function testXml($expected, $input)
     {
         $reader = new LAAF_Reader_Xml();
-        $given  = $reader->read($input);
-        $this->assertEquals($expected, $given);
+        $this->assertEquals($expected, $reader->read($input));
     }
 
-    function xtestXmlException()
+    function testXmlException()
     {
         $input = '<?xml version="1.0" encoding="UTF-8"?>
 <laaf:frame xmlns:laaf="' . Config::NS . '">
@@ -130,9 +129,9 @@ class ReadersTest extends PHPUnit_Framework_TestCase
 
             $given =
                     $e->getMessage()
-                        . "\n====================================\n"
-                        . $e->getTraceAsString()
-                        . "\n====================================\n"
+//                        . "\n====================================\n"
+//                        . $e->getTraceAsString()
+//                        . "\n====================================\n"
                 ;
 
             $this->assertEquals($expected, $given, print_r($input, true));

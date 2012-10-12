@@ -118,7 +118,7 @@ class LAAF_Frame
      * @return array LAAF Frame structure
      * @throws Exception
      */
-    private static   function getFrame($msg, $type, $data)
+    private static function getFrame($msg, $type, $data)
     {
         if ($data === null) {
             $data = new stdClass();
@@ -143,9 +143,17 @@ class LAAF_Frame
 
         if ($type === "data") {
             $frame["totalCount"] = count($data);
+            $frame["data"] = $data;
+            if (count($data) > 0) {
+                $frame["data"] = array(
+                    "entity" => $data
+                );
+            }
         }
-
-        $frame["data"] = $data;
+        else
+        {
+            $frame["data"] = $data;
+        }
 
         return $frame;
     }

@@ -32,10 +32,9 @@ class LAAF_Writer_Xml extends LAAF_Writer_Abstract
             XML_SERIALIZER_OPTION_XML_ENCODING     => "UTF-8",
             XML_SERIALIZER_OPTION_XML_DECL_ENABLED => true,
             XML_SERIALIZER_OPTION_ROOT_NAME        => "frame",
-            XML_SERIALIZER_OPTION_DEFAULT_TAG      => "entity",
             XML_SERIALIZER_OPTION_INDENT           => "    ",
             XML_SERIALIZER_OPTION_LINEBREAKS       => "\n",
-            XML_SERIALIZER_OPTION_MODE             => XML_SERIALIZER_MODE_DEFAULT,
+            XML_SERIALIZER_OPTION_MODE             => XML_SERIALIZER_MODE_SIMPLEXML,
             XML_SERIALIZER_OPTION_NAMESPACE        => array(Config::NS_PREFIX, Config::NS),
         );
 

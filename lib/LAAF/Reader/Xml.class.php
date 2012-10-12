@@ -24,6 +24,7 @@ class LAAF_Reader_Xml extends LAAF_Reader_Abstract
 
         $error = error_get_last();
         if($error) {
+        //    print_r($error);
             throw new Exception($error["message"], $error["type"]);
         }
 
@@ -31,20 +32,22 @@ class LAAF_Reader_Xml extends LAAF_Reader_Abstract
         $error = error_get_last();
 
         if($error) {
+        //    print_r($error);
             throw new Exception($error["message"], $error["type"]);
         }
 
         $input = $xml->saveXML();
 
-        $options = array(
-            XML_UNSERIALIZER_OPTION_COMPLEXTYPE => 'array',
-            XML_UNSERIALIZER_OPTION_FORCE_ENUM => array('entity'),
-        );
+        //
+
+        $data = array();
 
         $unserializer = new XML_Unserializer();
 
-        $status       = $unserializer->unserialize($input, false, $options);
+        $status       = $unserializer->unserialize($input);
         $data         = $unserializer->getUnserializedData();
+
+        //
 
         $data["success"]  = $data["success"] === "1";
         $data["datetime"] = preg_replace("/T/", " ", $data["datetime"]);
@@ -56,14 +59,6 @@ class LAAF_Reader_Xml extends LAAF_Reader_Abstract
         if (array_key_exists("data", $data) and ($data["data"] === array() or empty($data["data"]))) {
             $data["data"] = new stdClass();
         }
-
-        if(array_key_exists("entity", $data["data"])) {
-            $data["data"] = $data["data"]["entity"];
-        }
-
-        // Check if something went wrong during the serialization:
-        $xmlw = new LAAF_Writer_Xml();
-        $xmlw->format($data);
 
         return $data;
     }
