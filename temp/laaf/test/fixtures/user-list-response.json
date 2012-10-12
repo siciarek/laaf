@@ -1,0 +1,24 @@
+{
+    "success": true,
+    "type": "data",
+    "datetime": "1966-10-21 15:10:00",
+    "msg": "UserList",
+    "totalCount": 3,
+    "data": [
+        {
+            "id": 45,
+            "first_name": "John",
+            "last_name": "Doe"
+        },
+        {
+            "id": 54,
+            "first_name": "Louie",
+            "last_name": "Corn"
+        },
+        {
+            "id": 71,
+            "first_name": "Matilda",
+            "last_name": "Mello"
+        }
+    ]
+}
