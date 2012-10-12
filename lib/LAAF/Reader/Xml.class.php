@@ -24,7 +24,7 @@ class LAAF_Reader_Xml extends LAAF_Reader_Abstract
 
         $error = error_get_last();
         if($error) {
-        //    print_r($error);
+//            print_r($error);
             throw new Exception($error["message"], $error["type"]);
         }
 
@@ -32,7 +32,7 @@ class LAAF_Reader_Xml extends LAAF_Reader_Abstract
         $error = error_get_last();
 
         if($error) {
-        //    print_r($error);
+//            print_r($error);
             throw new Exception($error["message"], $error["type"]);
         }
 
