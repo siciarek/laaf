@@ -1,6 +1,8 @@
 laaf
 ====
 
+[![Build Status](https://secure.travis-ci.org/siciarek/laaf.png)](http://travis-ci.org/siciarek/laaf)
+
 Light As A Feather Webservice Protocol
 
 ## Supported formats
