@@ -20,7 +20,7 @@ class LAAF_Writer_Xml extends LAAF_Writer_Abstract
      * Returns LAAF frame formated in XML
      * @param $data frame data
      * @return string|void frame in XML format
-     * @throws Exception when xml schema validation fails
+     * @throws LAAF_Exception_InvalidRequestFormat when xml schema validation fails
      */
     public function format($data) {
 
@@ -47,13 +47,16 @@ class LAAF_Writer_Xml extends LAAF_Writer_Abstract
         $frame = preg_replace("#(</?)(" . Config::NS_PREFIX . ":){2}#", "$1".Config::NS_PREFIX . ":", $temp);
 
         $xml = new DOMDocument("1.0", "UTF-8");
-        $xml->loadXML($frame);
+        @$validxml = $xml->loadXml($frame);
 
-        try {
-            $xml->schemaValidate(Config::getSchema());
+        if ($validxml == false) {
+            throw new LAAF_Exception_InvalidRequestFormat();
         }
-        catch(Exception $e) {
-            throw $e;
+
+        @$validxml = $xml->schemaValidate(Config::getSchema());
+
+        if ($validxml == false) {
+            throw new LAAF_Exception_InvalidRequestFormat();
         }
 
         return $xml->saveXML();

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project version="2.0.0a10" title="">
-  <file path="bootstrap.php" hash="135d93116cfc5ecd99f831591bae1726" package="LAAF">
+  <file path="bootstrap.php" hash="79fbeca11b4c9d6339c4dafb7c886820" package="LAAF">
     <docblock line="2">
       <description><![CDATA[LAAF/bootstrap.php
 LAAF library bootstrap]]></description>
@@ -13,23 +13,23 @@ LAAF library bootstrap]]></description>
     <include line="11" type="Require Once" package="Default">
       <name/>
     </include>
-    <include line="13" type="Require Once" package="Default">
-      <name>Symfony/Component/Yaml/Parser.php</name>
+    <include line="12" type="Require Once" package="Default">
+      <name/>
     </include>
     <include line="14" type="Require Once" package="Default">
-      <name>Symfony/Component/Yaml/Inline.php</name>
+      <name>Symfony/Component/Yaml/Parser.php</name>
     </include>
     <include line="15" type="Require Once" package="Default">
-      <name>Symfony/Component/Yaml/Unescaper.php</name>
+      <name>Symfony/Component/Yaml/Inline.php</name>
     </include>
     <include line="16" type="Require Once" package="Default">
-      <name>Symfony/Component/Yaml/Escaper.php</name>
+      <name>Symfony/Component/Yaml/Unescaper.php</name>
     </include>
     <include line="17" type="Require Once" package="Default">
-      <name>Symfony/Component/Yaml/Yaml.php</name>
+      <name>Symfony/Component/Yaml/Escaper.php</name>
     </include>
-    <include line="19" type="Require Once" package="Default">
-      <name/>
+    <include line="18" type="Require Once" package="Default">
+      <name>Symfony/Component/Yaml/Yaml.php</name>
     </include>
     <include line="20" type="Require Once" package="Default">
       <name/>
@@ -58,7 +58,13 @@ LAAF library bootstrap]]></description>
     <include line="28" type="Require Once" package="Default">
       <name/>
     </include>
-    <include line="33" type="Require Once" package="Default">
+    <include line="29" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="30" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <include line="35" type="Require Once" package="Default">
       <name/>
     </include>
   </file>
@@ -106,6 +112,59 @@ LAAF library bootstrap]]></description>
     <parse_markers>
       <error line="16" code="50018">No DocBlock was found for property $service_map</error>
       <error line="18" code="50010">No DocBlock was found for method getServiceMap()</error>
+    </parse_markers>
+  </file>
+  <file path="Controller.class.php" hash="5c94f8fe0d5ba6577868d09d43d6dd66" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Created by JetBrains PhpStorm.]]></description>
+      <long-description><![CDATA[<p>User: jsiciarek
+Date: 12.10.12
+Time: 16:54
+To change this template use File | Settings | File Templates.</p>]]></long-description>
+    </docblock>
+    <class final="false" abstract="false" namespace="global" line="13" package="LAAF">
+      <extends/>
+      <name>LAAF_Format</name>
+      <full_name>\LAAF_Format</full_name>
+      <docblock line="9">
+        <description><![CDATA[Controller class]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="9" name="package" description="LAAF"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="17" package="LAAF">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="32" package="LAAF">
+        <name>recognize</name>
+        <full_name>recognize</full_name>
+        <argument line="32">
+          <name>$input</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <class final="false" abstract="false" namespace="global" line="45" package="Default">
+      <extends/>
+      <name>LAAF_Controller</name>
+      <full_name>\LAAF_Controller</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="47" package="Default">
+        <name>actionIndex</name>
+        <full_name>actionIndex</full_name>
+        <argument line="47">
+          <name>$request</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="15" code="50018">No DocBlock was found for property $formats</error>
+      <error line="17" code="50010">No DocBlock was found for method __construct()</error>
+      <error line="32" code="50010">No DocBlock was found for method recognize()</error>
+      <error line="45" code="50000">No DocBlock was found for \LAAF_Controller</error>
+      <error line="47" code="50010">No DocBlock was found for method actionIndex()</error>
     </parse_markers>
   </file>
   <file path="Dispatcher.class.php" hash="4c95107587088dee0892b03145ae0562" package="Default">
@@ -193,7 +252,7 @@ LAAF library bootstrap]]></description>
       <error line="24" code="50010">No DocBlock was found for method __construct()</error>
     </parse_markers>
   </file>
-  <file path="Frame.class.php" hash="5cae04af141d23cbbb74e26f44735d22" package="Default">
+  <file path="Frame.class.php" hash="2b7cf4213884643aed0e61158898408c" package="Default">
     <docblock line="2">
       <description><![CDATA[LAAF/Frame.class.php]]></description>
       <long-description><![CDATA[]]></long-description>
@@ -433,7 +492,7 @@ Protocol frames provider]]></description>
       </method>
     </class>
   </file>
-  <file path="Reader\Json.class.php" hash="0c8581721a50098da74caae6295bdd22" package="Default">
+  <file path="Reader\Json.class.php" hash="a5fbd14a34f3806b1e4602946c2344a4" package="Default">
     <docblock line="2">
       <description><![CDATA[LAAF/Reader/Json.class.php]]></description>
       <long-description><![CDATA[]]></long-description>
@@ -474,7 +533,7 @@ Protocol frames provider]]></description>
       </method>
     </class>
   </file>
-  <file path="Reader\Xml.class.php" hash="536f85cfb9d746f27f692074c09b30e6" package="Default">
+  <file path="Reader\Xml.class.php" hash="bb22e76b49a97432c63fe9bcd2209e30" package="Default">
     <docblock line="2">
       <description><![CDATA[LAAF/Reader/Xml.class.php]]></description>
       <long-description><![CDATA[]]></long-description>
@@ -574,7 +633,7 @@ Protocol frames provider]]></description>
       </method>
     </class>
   </file>
-  <file path="Writer\Json.class.php" hash="8e0e4eb515a74a6683c165e4578ff283" package="Default">
+  <file path="Writer\Json.class.php" hash="ef3bd476ee96b5eb4bda6db8038a3286" package="Default">
     <docblock line="2">
       <description><![CDATA[LAAF/Writer/Json.class.php]]></description>
       <long-description><![CDATA[]]></long-description>

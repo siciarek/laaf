@@ -34,11 +34,14 @@
     </logging>
 
     <testsuites>
-        <testsuite name="Sample Unit Tests">
-            <file>lib/LAAF/FrameTest.php</file>
-            <file>lib/LAAF/ControllerTest.php</file>
-            <file>lib/LAAF/WritersTest.php</file>
-            <file>lib/LAAF/ReadersTest.php</file>
+        <testsuite name="LAAF Server Functional Tests">
+            <file>functional/FunctionalControllerTest.php</file>
+        </testsuite>
+        <testsuite name="LAAF Server Unit Tests">
+            <file>unit/FrameTest.php</file>
+            <file>unit/WritersTest.php</file>
+            <file>unit/ReadersTest.php</file>
+            <file>unit/ControllerTest.php</file>
         </testsuite>
     </testsuites>
 

@@ -123,16 +123,9 @@ class ReadersTest extends PHPUnit_Framework_TestCase
             $this->assertTrue(false, "No exception was thrown.");
         }
         catch(Exception $e) {
-            $expected = "DOMDocument::schemaValidate(): "
-            . "Element '{" . Config::NS . "}success': '4' "
-            . "is not a valid value of the atomic type '{" . Config::NS . "}successType'.";
+            $expected = "Request has invalid format";
 
-            $given =
-                    $e->getMessage()
-//                        . "\n====================================\n"
-//                        . $e->getTraceAsString()
-//                        . "\n====================================\n"
-                ;
+            $given = $e->getMessage();
 
             $this->assertEquals($expected, $given, print_r($input, true));
         }
@@ -173,11 +166,9 @@ class ReadersTest extends PHPUnit_Framework_TestCase
     function readerJsonExceptionsDataProvider()
     {
         return array(
-            array("[]", "DOMDocument::schemaValidate(): Element '{" . Config::NS . "}frame': Missing child element(s). Expected is ( {" . Config::NS . "}success )."),
-            array('{"a":1', "LAAF_Reader_Json error: Syntax error"),
-            array('{"success":true,"type":"info","datetime":"WRONG DATETIME","msg":"OK","data":{}}',
-                "DOMDocument::schemaValidate(): Element '{" . Config::NS . "}datetime': 'WRONGTDATETIME' is not a valid value of the atomic type '{" . Config::NS . "}datetimeType'."
-            ),
+            array("[]", "Request has invalid format"),
+            array('{"a":1', "JSON error: Syntax error"),
+            array('{"success":true,"type":"info","datetime":"WRONG DATETIME","msg":"OK","data":{}}', "Request has invalid format"),
         );
     }
 

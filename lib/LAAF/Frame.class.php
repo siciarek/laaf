@@ -116,7 +116,7 @@ class LAAF_Frame
      * @param $type string Frame content (request|info|warning|error|data) is valid
      * @param $data array Additional data
      * @return array LAAF Frame structure
-     * @throws Exception
+     * @throws LAAF_Exception_NoMessage when no message was given
      */
     private static function getFrame($msg, $type, $data)
     {
@@ -125,7 +125,7 @@ class LAAF_Frame
         }
 
         if (empty($msg)) {
-            throw new Exception("No message was given");
+            throw new LAAF_Exception_NoMessage();
         }
 
         $success = in_array($type, array("error", "warning")) ? false : true;
@@ -154,6 +154,8 @@ class LAAF_Frame
         {
             $frame["data"] = $data;
         }
+
+        self::$auth = array();
 
         return $frame;
     }

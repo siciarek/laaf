@@ -10,3 +10,31 @@ if(defined("PHP_BINARY") === false)
 
 include_once __DIR__ . "/../lib/LAAF/bootstrap.php";
 include_once __DIR__ . "/tools/CurlRequest.class.php";
+
+function xmlDataProvider()
+{
+    return array(
+        array(
+            file_get_contents(FIXTURES_DIR . '/user-list-request.xml'),
+            file_get_contents(FIXTURES_DIR . '/user-list-response.xml'),
+        ),
+        array(
+            file_get_contents(FIXTURES_DIR . '/user-details-request.xml'),
+            file_get_contents(FIXTURES_DIR . '/user-details-response.xml'),
+        ),
+    );
+}
+
+function jsonDataProvider()
+{
+    return array(
+        array(
+            file_get_contents(FIXTURES_DIR . '/user-list-request.json'),
+            file_get_contents(FIXTURES_DIR . '/user-list-response.json'),
+        ),
+        array(
+            file_get_contents(FIXTURES_DIR . '/user-details-request.json'),
+            file_get_contents(FIXTURES_DIR . '/user-details-response.json'),
+        ),
+    );
+}

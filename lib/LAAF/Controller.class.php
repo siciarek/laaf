@@ -18,7 +18,6 @@ class LAAF_Format
     {
         $this->formats = array(
             "application/json" => function ($input) {
-                //$data = json_decode($input);
                 return json_decode($input) !== null;
             },
             "application/xml"  => function ($input) {
@@ -32,6 +31,10 @@ class LAAF_Format
 
     public function recognize($input)
     {
+        if(!preg_match("/^(<|\{)/", $input)) {
+            return null;
+        }
+
         foreach ($this->formats as $mimetype => $function) {
             if ($function($input) === true) {
                 return $mimetype;
@@ -45,8 +48,9 @@ class LAAF_Format
 
 class LAAF_Controller
 {
-    public static function actionIndex($request)
+    public function actionIndex($request)
     {
+
         if (!empty($request)) {
 
             $format   = new LAAF_Format();
@@ -54,15 +58,16 @@ class LAAF_Controller
 
             try {
                 if ($mimetype === null) {
-                    throw new Exception("Invalid request format");
+                    throw new LAAF_Exception_InvalidRequestFormat();
                 }
-
-                $reader = new LAAF_Reader_Xml();
-                $writer = new LAAF_Writer_Xml();
 
                 if($mimetype === "application/json") {
                     $reader = new LAAF_Reader_Json();
                     $writer = new LAAF_Writer_Json();
+                }
+                else {
+                    $reader = new LAAF_Reader_Xml();
+                    $writer = new LAAF_Writer_Xml();
                 }
 
                 $input = $reader->read($request);
@@ -85,11 +90,11 @@ class LAAF_Controller
 
             }
         } else {
-            $msg = "LAAF - Light As A Feather Webservice Protocol";
+            $msg = "LAAF Service";
 
             $data["author"] = "Jacek Siciarek <siciarek@gmail.com>";
             $data["repo"]   = "https://github.com/siciarek/laaf";
-            $data["server"] = $_SERVER;
+            $data["description"] = "Light As A Feather Webservice Protocol";
 
             $frame  = LAAF_Frame::getInfo($msg, $data);
             $writer = new LAAF_Writer_Xml();
@@ -97,8 +102,14 @@ class LAAF_Controller
             $mimetype = $writer->getMimeType();
         }
 
-        header("Content-type: " . $mimetype);
-        echo $output;
-        exit;
+//        return array(
+//            "mimetype" => "application/octet-stream",
+//            "output" => sprintf("--%s--", $request),
+//        );
+
+        return array(
+            "mimetype" => $mimetype,
+            "output" => $output,
+        );
     }
 }

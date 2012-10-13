@@ -2,34 +2,43 @@
 /**
  * Controller tests
  */
-class ControllerTest extends PHPUnit_Framework_TestCase
+class FunctionalControllerTest extends PHPUnit_Framework_TestCase
 {
     function controllerXmlRequestsProvider()
     {
-        return array(
-            array(
-                file_get_contents(FIXTURES_DIR . '/user-list-request.xml'),
-                file_get_contents(FIXTURES_DIR . '/user-list-response.xml'),
-            ),
-            array(
-                file_get_contents(FIXTURES_DIR . '/user-details-request.xml'),
-                file_get_contents(FIXTURES_DIR . '/user-details-response.xml'),
-            ),
-        );
+        return xmlDataProvider();
     }
 
     function controllerJsonRequestsProvider()
     {
-        return array(
-            array(
-                file_get_contents(FIXTURES_DIR . '/user-list-request.json'),
-                file_get_contents(FIXTURES_DIR . '/user-list-response.json'),
-            ),
-            array(
-                file_get_contents(FIXTURES_DIR . '/user-details-request.json'),
-                file_get_contents(FIXTURES_DIR . '/user-details-response.json'),
-            ),
-        );
+        return jsonDataProvider();
+    }
+
+    function controllerInvalidRequestsProvider()
+    {
+        return invalidDataProvider();
+    }
+
+    /**
+     * @dataProvider controllerInvalidRequestsProvider
+     * @param $request
+     * @param $expected
+     */
+    function testControllerInvalidRequests($request, $expected)
+    {
+        $controller = new LAAF_Controller();
+        $given = "GIVEN";
+
+        try {
+            $given = $this->curl->post(TEST_SERVICE_URL, $request);
+            $given = preg_replace("|(<laaf:datetime)>.*?(</laaf:datetime>)|", '$1' . '>' . $this->dtxml . '$2', $given);
+            $given = preg_replace("|(<laaf:line)>.*?(</laaf:line>)|s", '$1' . '>0$2', $given);
+            $given = preg_replace("|(<laaf:file)>.*?(</laaf:file>)|s", '$1' . '>file$2', $given);
+        } catch (Exception $e) {
+            $this->assertTrue(false, $e->getMessage());
+        }
+
+        $this->assertEquals($expected, $given);
     }
 
     /**
@@ -39,7 +48,6 @@ class ControllerTest extends PHPUnit_Framework_TestCase
      */
     function testControllerXmlRequests($request, $expected)
     {
-        $w     = new LAAF_Writer_Xml();
         $given = "GIVEN";
 
         try {
@@ -59,7 +67,6 @@ class ControllerTest extends PHPUnit_Framework_TestCase
      */
     function testControllerJsonRequests($request, $expected)
     {
-        $w     = new LAAF_Writer_Json();
         $given = "GIVEN";
         $expected = json_encode(json_decode($expected, true));
 

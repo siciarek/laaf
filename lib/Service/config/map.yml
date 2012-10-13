@@ -1,5 +1,10 @@
 ---
 ServiceMap:
+  SayHello:
+    class: User
+    method: sayHello
+    params: ~
+    returns: ~
   UserList:
     class: User
     method: getList

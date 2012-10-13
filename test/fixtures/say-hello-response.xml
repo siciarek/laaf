@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<laaf:frame xmlns:laaf="http://laaf.siciarek.pl">
+    <laaf:success>1</laaf:success>
+    <laaf:type>info</laaf:type>
+    <laaf:datetime>1966-10-21T15:10:00</laaf:datetime>
+    <laaf:msg>OK</laaf:msg>
+    <laaf:data/>
+</laaf:frame>

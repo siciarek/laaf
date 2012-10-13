@@ -15,25 +15,21 @@ class LAAF_Reader_Xml extends LAAF_Reader_Abstract
      * Returns LAAF data
      * @param string $input XML encoded data
      * @return array|void LAAF frame
-     * @throws Exception when xml schema validation fails
+     * @throws LAAF_Exception when xml schema validation fails
      */
     public function read($input)
     {
         $xml = new DOMDocument("1.0", "UTF-8");
-        @$xml->loadXML($input);
+        @$validxml = $xml->loadXml($input);
 
-        $error = error_get_last();
-        if ($error) {
-//            print_r($error);
-            throw new Exception($error["message"], $error["type"]);
+        if ($validxml == false) {
+           throw new LAAF_Exception_InvalidRequestFormat();
         }
 
-        @$xml->schemaValidate(Config::getSchema());
-        $error = error_get_last();
+        @$validxml = $xml->schemaValidate(Config::getSchema());
 
-        if ($error) {
-//            print_r($error);
-            throw new Exception($error["message"], $error["type"]);
+        if ($validxml == false) {
+            throw new LAAF_Exception_InvalidRequestFormat();
         }
 
         $input = $xml->saveXML();

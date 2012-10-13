@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<laaf:frame xmlns:laaf="http://laaf.siciarek.pl">
+    <laaf:success>1</laaf:success>
+    <laaf:type>info</laaf:type>
+    <laaf:datetime>1966-10-21T15:10:00</laaf:datetime>
+    <laaf:msg>LAAF Service</laaf:msg>
+    <laaf:data>
+        <laaf:author>Jacek Siciarek &lt;siciarek@gmail.com&gt;</laaf:author>
+        <laaf:repo>https://github.com/siciarek/laaf</laaf:repo>
+        <laaf:description>Light As A Feather Webservice Protocol</laaf:description>
+    </laaf:data>
+</laaf:frame>

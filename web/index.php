@@ -12,7 +12,12 @@ $frame  = LAAF_Frame::getInfo($msg, $data);
 
 $request = file_get_contents("php://input");
 
-LAAF_Controller::actionIndex($request);
+$controller = new LAAF_Controller();
+
+$response = $controller->actionIndex($request);
+
+header("Content-type: " . $response["mimetype"]);
+echo $response["output"];
 
 /*
 

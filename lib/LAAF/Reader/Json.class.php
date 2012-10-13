@@ -16,11 +16,10 @@ class LAAF_Reader_Json extends LAAF_Reader_Abstract
      * Returns LAAF data
      * @param string $input JSON encoded data
      * @return array|void LAAF frame
-     * @throws Exception when xml schema validation fails
+     * @throws LAAF_Exception
      */
     public function read($input)
     {
-
         $errors = array(
             JSON_ERROR_NONE           => "OK",
             JSON_ERROR_DEPTH          => "Depth error",
@@ -35,7 +34,7 @@ class LAAF_Reader_Json extends LAAF_Reader_Abstract
             $err  = json_last_error();
 
             if ($err !== JSON_ERROR_NONE) {
-                throw new Exception(get_class($this) . " error: " . $errors[$err]);
+                throw new LAAF_Exception("JSON error: " . $errors[$err]);
             }
 
             if (array_key_exists("data", $data) and ($data["data"] === array() or empty($data["data"]))) {

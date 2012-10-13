@@ -21,18 +21,13 @@ class LAAF_Writer_Json extends LAAF_Writer_Abstract
      *
      * @param $data array frame data
      * @return string|void frame in JSON format
-     * @throws Exception when xml schema validation fails
+     * @throws LAAF_Exception_InvalidRequestFormat when xml schema validation fails
      */
-    public function format($data) {
-
-        try {
-            // For validation against XML Schema
-            $xmlw = new LAAF_Writer_Xml();
-            $xmlw->format($data);
-        }
-        catch(Exception $e) {
-            throw $e;
-        }
+    public function format($data)
+    {
+        // For validation against XML Schema
+        $xmlw = new LAAF_Writer_Xml();
+        $xmlw->format($data);
 
         if (array_key_exists("data", $data) and ($data["data"] === array() or empty($data["data"]))) {
             $data["data"] = new stdClass();
@@ -43,5 +38,5 @@ class LAAF_Writer_Json extends LAAF_Writer_Abstract
         }
 
         return json_encode($data);
-   }
+    }
 }

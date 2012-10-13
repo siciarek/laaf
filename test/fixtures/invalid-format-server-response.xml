@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<laaf:frame xmlns:laaf="http://laaf.siciarek.pl">
+    <laaf:success>0</laaf:success>
+    <laaf:type>error</laaf:type>
+    <laaf:datetime>1966-10-21T15:10:00</laaf:datetime>
+    <laaf:msg>Request has invalid format</laaf:msg>
+    <laaf:data>
+        <laaf:message>Request has invalid format</laaf:message>
+        <laaf:code>2014</laaf:code>
+        <laaf:file>file</laaf:file>
+        <laaf:line>0</laaf:line>
+    </laaf:data>
+</laaf:frame>

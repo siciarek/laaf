@@ -16,6 +16,10 @@ class User
         return $this->data;
     }
 
+    public function sayHello() {
+        return true;
+    }
+
     public function getUser($value) {
         $id = intval($value);
 

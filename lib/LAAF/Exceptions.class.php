@@ -26,3 +26,31 @@ class LAAF_Exception_ServiceNotSupported extends LAAF_Exception {
         $this->code = 2013;
     }
 }
+
+/**
+ * Invalid request format LAAF Exception
+ *
+ * @author Jacek Siciarek <siciarek@gmail.com>
+ * @package LAAF
+ * @subpackage Exception
+ */
+class LAAF_Exception_InvalidRequestFormat extends LAAF_Exception {
+    public function __construct() {
+        $this->message = "Request has invalid format";
+        $this->code = 2014;
+    }
+}
+
+/**
+ * Invalid request format LAAF Exception
+ *
+ * @author Jacek Siciarek <siciarek@gmail.com>
+ * @package LAAF
+ * @subpackage Exception
+ */
+class LAAF_Exception_NoMessage extends LAAF_Exception {
+    public function __construct() {
+        $this->message = "No message was given";
+        $this->code = 2015;
+    }
+}

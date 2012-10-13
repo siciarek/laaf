@@ -29,6 +29,10 @@ class LAAF_Dispatcher
 
         $msg = $service;
 
+        if((is_object($obj) and method_exists($class, $method)) === false) {
+            throw new LAAF_Exception_ServiceNotSupported($service);
+        }
+
         if($params === null || $params === array()) {
             $result = $obj->$method();
         }
@@ -56,7 +60,7 @@ class LAAF_Dispatcher
                 return LAAF_Frame::getInfo($msg, $result);
                 break;
             default:
-                return LAAF_Frame::getInfo($msg);
+                return LAAF_Frame::getInfo();
                 break;
         }
     }
