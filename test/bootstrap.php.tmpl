@@ -11,17 +11,11 @@ if(defined("PHP_BINARY") === false)
 include_once __DIR__ . "/../lib/LAAF/bootstrap.php";
 include_once __DIR__ . "/tools/CurlRequest.class.php";
 
-function xmlDataProvider()
+function invalidDataProvider()
 {
     return array(
-        array(
-            file_get_contents(FIXTURES_DIR . '/user-list-request.xml'),
-            file_get_contents(FIXTURES_DIR . '/user-list-response.xml'),
-        ),
-        array(
-            file_get_contents(FIXTURES_DIR . '/user-details-request.xml'),
-            file_get_contents(FIXTURES_DIR . '/user-details-response.xml'),
-        ),
+        array("", file_get_contents(FIXTURES_DIR . '/default-server-response.xml')),
+        array("ABC", file_get_contents(FIXTURES_DIR . '/invalid-format-server-response.xml')),
     );
 }
 
@@ -35,6 +29,25 @@ function jsonDataProvider()
         array(
             file_get_contents(FIXTURES_DIR . '/user-details-request.json'),
             file_get_contents(FIXTURES_DIR . '/user-details-response.json'),
+        ),
+    );
+}
+
+
+function xmlDataProvider()
+{
+    return array(
+        array(
+            file_get_contents(FIXTURES_DIR . '/say-hello-request.xml'),
+            file_get_contents(FIXTURES_DIR . '/say-hello-response.xml'),
+        ),
+        array(
+            file_get_contents(FIXTURES_DIR . '/user-list-request.xml'),
+            file_get_contents(FIXTURES_DIR . '/user-list-response.xml'),
+        ),
+        array(
+            file_get_contents(FIXTURES_DIR . '/user-details-request.xml'),
+            file_get_contents(FIXTURES_DIR . '/user-details-response.xml'),
         ),
     );
 }
