@@ -2,8 +2,7 @@
 <!DOCTYPE phpunit>
 
 <phpunit
-        strict="true"
-        verbose="true"
+        strict="false"
         fork="false"
         stopOnFailure="false"
         syntaxCheck="true"
