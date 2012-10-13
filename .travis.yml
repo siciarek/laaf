@@ -11,3 +11,4 @@ before_script:
   - sleep 3
   - cd ./test
   - cp bootstrap.php.tmpl bootstrap.php
+  - cp ../lib/LAAF/bootstrap.php.tmpl ../lib/LAAF/bootstrap.php
