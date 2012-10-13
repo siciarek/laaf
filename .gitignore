@@ -2,6 +2,8 @@
 /temp*
 /test/bootstrap.php
 /lib/LAAF/bootstrap.php
+/web/test
+/web/doc
 
 # Bootstrap
 app/bootstrap*
