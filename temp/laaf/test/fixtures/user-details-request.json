@@ -1,9 +1,0 @@
-{
-    "success": true,
-    "type": "request",
-    "datetime": "1966-10-21 15:10:00",
-    "msg": "UserDetails",
-    "data": {
-        "id": 45
-    }
-}
