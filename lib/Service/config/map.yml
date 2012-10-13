@@ -1,6 +1,6 @@
 ---
 ServiceMap:
-  UsersList:
+  UserList:
     class: User
     method: getList
     params: ~

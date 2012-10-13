@@ -23,7 +23,7 @@ class LAAF_Reader_Xml extends LAAF_Reader_Abstract
         @$xml->loadXML($input);
 
         $error = error_get_last();
-        if($error) {
+        if ($error) {
 //            print_r($error);
             throw new Exception($error["message"], $error["type"]);
         }
@@ -31,7 +31,7 @@ class LAAF_Reader_Xml extends LAAF_Reader_Abstract
         @$xml->schemaValidate(Config::getSchema());
         $error = error_get_last();
 
-        if($error) {
+        if ($error) {
 //            print_r($error);
             throw new Exception($error["message"], $error["type"]);
         }
@@ -44,8 +44,8 @@ class LAAF_Reader_Xml extends LAAF_Reader_Abstract
 
         $unserializer = new XML_Unserializer();
 
-        $status       = $unserializer->unserialize($input);
-        $data         = $unserializer->getUnserializedData();
+        $status = $unserializer->unserialize($input);
+        $data   = $unserializer->getUnserializedData();
 
         //
 

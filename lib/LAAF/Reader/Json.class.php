@@ -38,8 +38,12 @@ class LAAF_Reader_Json extends LAAF_Reader_Abstract
                 throw new Exception(get_class($this) . " error: " . $errors[$err]);
             }
 
-            if (array_key_exists("data", $data) and $data["data"] === array()) {
+            if (array_key_exists("data", $data) and ($data["data"] === array() or empty($data["data"]))) {
                 $data["data"] = new stdClass();
+            }
+
+            if (array_key_exists("data", $data) and array_key_exists("entity", $data["data"])) {
+                $data["data"] = $data["data"]["entity"];
             }
 
             $xmlw = new LAAF_Writer_Xml();

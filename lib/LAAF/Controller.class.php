@@ -18,13 +18,14 @@ class LAAF_Format
     {
         $this->formats = array(
             "application/json" => function ($input) {
+                //$data = json_decode($input);
                 return json_decode($input) !== null;
             },
             "application/xml"  => function ($input) {
                 $dom = new DOMDocument();
-                @$dom->loadXml($input);
-                $error = error_get_last();
-                return $error === null;
+                @$result = $dom->loadXml($input);
+
+                return $result === true;
             }
         );
     }
@@ -69,8 +70,6 @@ class LAAF_Controller
                 $frame  = $dispatcher->assignService($input["msg"], $input["data"]);
                 $output = $writer->format($frame);
                 $mimetype = $writer->getMimeType();
-
-
             } catch (Exception $e) {
                 $msg             = strip_tags($e->getMessage());
                 $data            = array();
@@ -97,7 +96,6 @@ class LAAF_Controller
             $output = $writer->format($frame, false);
             $mimetype = $writer->getMimeType();
         }
-
 
         header("Content-type: " . $mimetype);
         echo $output;

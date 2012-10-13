@@ -34,6 +34,14 @@ class LAAF_Writer_Json extends LAAF_Writer_Abstract
             throw $e;
         }
 
+        if (array_key_exists("data", $data) and ($data["data"] === array() or empty($data["data"]))) {
+            $data["data"] = new stdClass();
+        }
+
+        if (array_key_exists("data", $data) and array_key_exists("entity", $data["data"])) {
+            $data["data"] = $data["data"]["entity"];
+        }
+
         return json_encode($data);
    }
 }

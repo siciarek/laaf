@@ -12,13 +12,8 @@ $frame  = LAAF_Frame::getInfo($msg, $data);
 
 $request = file_get_contents("php://input");
 
-$reader = new LAAF_Reader_Xml();
-$writer = new LAAF_Writer_Xml();
+LAAF_Controller::actionIndex($request);
 
-if (array_key_exists("CONTENT_TYPE", $_SERVER) and $_SERVER["CONTENT_TYPE"] === "application/json") {
-    $reader = new LAAF_Reader_Json();
-    $writer = new LAAF_Writer_Json();
-}
 /*
 
 errors:
@@ -55,29 +50,3 @@ errors:
 
 */
 
-if(!empty($request)) {
-
-    try {
-        $input = $reader->read($request);
-
-        $msg = "Your request is valid";
-        $data = array(
-            "request" => $input
-        );
-
-        $dispatcher = new LAAF_Dispatcher();
-        $frame  = $dispatcher->assignService($input["msg"], $input["data"]);
-    }
-    catch(Exception $e) {
-        $msg = strip_tags($e->getMessage());
-        $data = array();
-        $data["message"] = $msg;
-        $data["code"] = $e->getCode();
-        $data["file"] = $e->getFile();
-        $data["line"] = $e->getLine();
-        $frame  = LAAF_Frame::getError($msg, $data);
-    }
-}
-
-header("Content-type: " . $writer->getMimeType());
-echo $writer->format($frame);

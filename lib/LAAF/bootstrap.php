@@ -20,6 +20,7 @@ require_once "Symfony/Component/Yaml/Yaml.php";
 require_once __DIR__ . "/Exceptions.class.php";
 require_once __DIR__ . "/Config.class.php";
 require_once __DIR__ . "/Frame.class.php";
+require_once __DIR__ . "/Controller.class.php";
 require_once __DIR__ . "/Writer/Abstract.class.php";
 require_once __DIR__ . "/Writer/Json.class.php";
 require_once __DIR__ . "/Writer/Xml.class.php";

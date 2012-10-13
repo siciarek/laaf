@@ -8,7 +8,7 @@ class User
 
     public function __construct() {
         $this->data[] = array("id" => 45, "first_name" => "John", "last_name" => "Doe");
-        $this->data[] = array("id" => 54, "first_name" => "Luie", "last_name" => "Corn");
+        $this->data[] = array("id" => 54, "first_name" => "Louie", "last_name" => "Corn");
         $this->data[] = array("id" => 71, "first_name" => "Matilda", "last_name" => "Mello");
     }
 
