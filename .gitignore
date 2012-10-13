@@ -1,6 +1,7 @@
 .idea
 /temp*
 /test/bootstrap.php
+/lib/LAAF/bootstrap.php
 
 # Bootstrap
 app/bootstrap*
