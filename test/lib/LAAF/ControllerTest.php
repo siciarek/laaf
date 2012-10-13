@@ -4,8 +4,6 @@
  */
 class ControllerTest extends PHPUnit_Framework_TestCase
 {
-    private static $service_url = "http://laaf.dev";
-
     function controllerXmlRequestsProvider()
     {
         return array(
@@ -45,7 +43,7 @@ class ControllerTest extends PHPUnit_Framework_TestCase
         $given = "GIVEN";
 
         try {
-            $given = $this->curl->post(self::$service_url, $request);
+            $given = $this->curl->post(TEST_SERVICE_URL, $request);
             $given = preg_replace("|(<laaf:datetime)>.*?(</laaf:datetime>)|", '$1' . '>' . $this->dtxml . '$2', $given);
         } catch (Exception $e) {
             $this->assertTrue(false, $e->getMessage());
@@ -66,7 +64,7 @@ class ControllerTest extends PHPUnit_Framework_TestCase
         $expected = json_encode(json_decode($expected, true));
 
         try {
-            $given = $this->curl->post(self::$service_url, $request);
+            $given = $this->curl->post(TEST_SERVICE_URL, $request);
             $given = preg_replace('|("datetime":)"[^"]+"|', '$1"' . $this->datetime . '"', $given);
         } catch (Exception $e) {
             $this->assertTrue(false, $e->getMessage());
