@@ -14,4 +14,6 @@ echo "LAAF\n";
 echo "LAAF\n";
 echo "LAAF\n";
 echo "LAAF\n";
+
+phpinfo();
 ?>
