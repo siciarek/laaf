@@ -15,6 +15,5 @@ before_script:
   - cp bin/httpd.py .
   - python httpd.py 8888 &
   - sleep 3
-  - wget -q -O- http://localhost:8888/web/test.php
   - cd ./test
 
