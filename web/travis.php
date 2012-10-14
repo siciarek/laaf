@@ -1,5 +1,6 @@
 #!/usr/bin/env php
 <?php
+// #!/usr/local/php5.3/bin/php
 
 @include_once __DIR__ . '/../lib/LAAF/bootstrap.php';
 
