@@ -11,7 +11,7 @@ before_script:
   - sleep 3
   - cp test/bootstrap.php.tmpl test/bootstrap.php
   - cp lib/LAAF/bootstrap.php.tmpl lib/LAAF/bootstrap.php
-  - chmod 777 web/test.php
+  - chmod 777 web/travis.php
   - cp bin/httpd.py .
   - python httpd.py 8888 &
   - sleep 3
