@@ -12,3 +12,6 @@ before_script:
   - cd ./test
   - cp bootstrap.php.tmpl bootstrap.php
   - cp ../lib/LAAF/bootstrap.php.tmpl ../lib/LAAF/bootstrap.php
+  - chmod +x ../web/testindex.php
+  - python ../bin/httpd.py 8888 &
+  - sleep 3
