@@ -1,2 +1,2 @@
 #!/usr/bin/env php
-<?php phpinfo() ?>
+<?php date("Y-m-d H:i:s") ?> LAAF
