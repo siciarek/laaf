@@ -1,5 +1,6 @@
-#!/usr/bin/env php
+#!/usr/bin/php
 <?php
 
-echo date("Y-m-d H:i:s");
+echo "LAAF\nLAAF\n";
+
 
