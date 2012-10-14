@@ -17,11 +17,9 @@ before_script:
   - python httpd.py 8888 &
   - sleep 3
   - ls -all web
-  - chmod +x web/test.php
+  - chmod +x test.php web/test.php
   - ./test.php
-  - echo AAAAA
   - wget -q -O- http://localhost:8888/test.php
-  - echo BBBBB
   - wget -q -O- http://localhost:8888/web/test.php
   - cd ./test
 
