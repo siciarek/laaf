@@ -19,7 +19,9 @@ before_script:
   - ls -all web
   - chmod +x test.php web/test.php
   - ./test.php
+  - ./web/test.php
   - wget -q -O- http://localhost:8888/test.php
-  - wget -q -O- http://localhost:8888/web/test.php
+  - wget -q --output-document=./data.txt http://localhost:8888/web/test.php
+  - cat ./data.txt
   - cd ./test
 
