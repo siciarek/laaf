@@ -1,4 +1,17 @@
 #!/usr/bin/env php
 <?php
-require __DIR__ . "/index.php";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
+echo "LAAF\n";
 ?>
