@@ -1,11 +1,13 @@
 #!/usr/bin/env php
 <?php
 
-include_once __DIR__ . '/../lib/LAAF/bootstrap.php';
+$response = array(
+    "mimetype" => "application/xml",
+    "output" => "<laaf:frame>
+<laaf:success>1</laaf:success>
 
-$request = file_get_contents("php://input");
-$controller = new LAAF_Controller();
-$response = $controller->actionIndex($request);
+</laaf:frame>",
+);
 
 echo "Content-type: " . $response["mimetype"] . "\n\n";
 echo $response["output"];
