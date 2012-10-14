@@ -11,5 +11,5 @@ $header = "Content-type: " . $response["mimetype"];
 $output = $response["output"];
 
 
-print($header);
+print($header . "\n\n");
 print($output);
