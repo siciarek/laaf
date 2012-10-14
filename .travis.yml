@@ -18,6 +18,9 @@ before_script:
   - sleep 3
   - ls -all web
   - ./test.php
+  - echo AAAAA
   - wget -q -O- http://localhost:8888/test.php
+  - echo BBBBB
+  - wget -q -O- http://localhost:8888/web/test.php
   - cd ./test
 
