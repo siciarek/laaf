@@ -35,7 +35,7 @@
 
     <testsuites>
         <testsuite name="LAAF Server Functional Tests">
-            <!--<file>functional/FunctionalControllerTest.php</file>-->
+            <file>functional/FunctionalControllerTest.php</file>
         </testsuite>
         <testsuite name="LAAF Server Unit Tests">
             <file>unit/FrameTest.php</file>
