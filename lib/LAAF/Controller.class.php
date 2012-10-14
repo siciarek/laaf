@@ -102,11 +102,6 @@ class LAAF_Controller
             $mimetype = $writer->getMimeType();
         }
 
-//        return array(
-//            "mimetype" => "application/octet-stream",
-//            "output" => sprintf("--%s--", $request),
-//        );
-
         return array(
             "mimetype" => $mimetype,
             "output" => $output,
