@@ -17,5 +17,5 @@ before_script:
   - sleep 3
   - cd ./test
 
-script: phpunit --color --testdox
+script: phpunit --colors --testdox
 
