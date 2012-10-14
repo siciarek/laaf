@@ -12,10 +12,11 @@ before_script:
   - cp test/bootstrap.php.tmpl test/bootstrap.php
   - cp lib/LAAF/bootstrap.php.tmpl lib/LAAF/bootstrap.php
   - chmod +x web/testindex.php
+  - chmod +x index.php
   - cp bin/httpd.py .
   - python httpd.py 8888 &
   - sleep 3
   - ls -all web
-  - wget -q -O- http://localhost:8888/web/testindex.php
+  - wget -q -O- http://localhost:8888/index.php
   - cd ./test
 
