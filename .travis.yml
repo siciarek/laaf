@@ -13,7 +13,7 @@ before_script:
   - cp lib/LAAF/bootstrap.php.tmpl lib/LAAF/bootstrap.php
   - chmod 777 web/travis.php
   - cp bin/httpd.py .
-  - python httpd.py 8888 &
+  - python httpd.py 8888 2>1 /dev/null &
   - sleep 3
   - cd ./test
 
