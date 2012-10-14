@@ -14,5 +14,6 @@ before_script:
   - chmod +x web/testindex.php
   - python bin/httpd.py 8888 &
   - sleep 3
+  - wget -q -O- http://localhost:8888/web/testindex.php
   - cd ./test
 
