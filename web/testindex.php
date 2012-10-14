@@ -1,4 +1,12 @@
-#! php
-<?php
-
-include __DIR__ . '/index.php';
+LAAF
+LAAF
+LAAF
+LAAF
+LAAF
+LAAF
+LAAF
+LAAF
+LAAF
+LAAF
+LAAF
+LAAF
