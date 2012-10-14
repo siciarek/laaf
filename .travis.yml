@@ -9,9 +9,10 @@ before_script:
   - "export DISPLAY=:99.0"
   - sh -e /etc/init.d/xvfb start
   - sleep 3
-  - cd ./test
-  - cp bootstrap.php.tmpl bootstrap.php
-  - cp ../lib/LAAF/bootstrap.php.tmpl ../lib/LAAF/bootstrap.php
-  - chmod +x ../web/testindex.php
-  - python ../bin/httpd.py 8888 &
+  - cp test/bootstrap.php.tmpl test/bootstrap.php
+  - cp lib/LAAF/bootstrap.php.tmpl lib/LAAF/bootstrap.php
+  - chmod +x web/testindex.php
+  - python bin/httpd.py 8888 &
   - sleep 3
+  - cd ./test
+
