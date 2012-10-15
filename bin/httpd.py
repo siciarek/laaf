@@ -1,6 +1,5 @@
 import BaseHTTPServer
 import CGIHTTPServer
-#server =
 
 import CGIHTTPServer
 for name in dir(CGIHTTPServer):
@@ -11,16 +10,12 @@ import sys
 
 env = {}
 
-
 if len(sys.argv) > 1:
     port = int(sys.argv[1])
 else:
     port = 8080
 
 class server(CGIHTTPServer.CGIHTTPRequestHandler, object):
-
-    def rewrite_url(self):
-        self.oldpath = self.path
 
     def authorize(self):
         authorization = self.headers.getheader("authorization")
@@ -34,21 +29,16 @@ class server(CGIHTTPServer.CGIHTTPRequestHandler, object):
                 env['PHP_AUTH_USER'] = authorization[0]
                 env['PHP_AUTH_PW'] = authorization[1]
 
-
-
     def do_POST(self):
-        self.rewrite_url()
         self.authorize()
         super(server, self).do_POST()
 
     def do_GET(self):
-        self.rewrite_url()
         self.authorize()
         super(server, self).do_GET()
 
-
     # The only thing added below is:
-    # env['REQUEST_URI'] = self.oldpath
+    # env['REQUEST_URI'] = self.path
     def run_cgi(self):
         """Execute a CGI script."""
         path = self.path
@@ -110,7 +100,7 @@ class server(CGIHTTPServer.CGIHTTPRequestHandler, object):
         env['SERVER_PORT'] = str(self.server.server_port)
         env['REQUEST_METHOD'] = self.command
         uqrest = urllib.unquote(rest)
-        env['REQUEST_URI'] = self.oldpath
+        env['REQUEST_URI'] = self.path
         env['PATH_INFO'] = uqrest
         env['PATH_TRANSLATED'] = self.translate_path(uqrest)
         env['SCRIPT_NAME'] = scriptname
@@ -275,13 +265,6 @@ class server(CGIHTTPServer.CGIHTTPRequestHandler, object):
 
 
 server.cgi_directories = ['/web']
-#print server.cgi_directories
-#for k,v in server.extensions_map.items():
-#    print k, v
-server.extensions_map[''] = 'text/plain'
-server.extensions_map['.sh'] = 'text/plain'
-server.extensions_map['.py'] = 'text/plain'
 
-httpd = BaseHTTPServer.HTTPServer(('',port),
-                          server)
+httpd = BaseHTTPServer.HTTPServer(('', port), server)
 httpd.serve_forever()
