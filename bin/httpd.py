@@ -21,19 +21,6 @@ class server(CGIHTTPServer.CGIHTTPRequestHandler, object):
 
     def rewrite_url(self):
         self.oldpath = self.path
-        self.path = re.sub(r'^/test$',
-                           r'/test.sh',                    self.path)
-        self.path = re.sub(r'^/[a-zA-Z0-9._+=-]+\.wb$',
-                           r'/wb.py.cgi',                  self.path)
-        self.path = re.sub(r'^/([a-zA-Z0-9._+=-]+)\.txt$',
-                           r'/data/wb_\1.txt',             self.path)
-        self.path = re.sub(r'^/[a-zA-Z0-9._+=-]+\.(rst|textile|rawtxt|rawtxt2)$',
-                           r'/wb.py.cgi',                  self.path)
-        self.path = re.sub(r'^/[a-zA-Z0-9._+=-]+\.txt\?.*',
-                           r'/wb.py.cgi',                  self.path)
-        self.path = re.sub(r'^/sync$',
-                           r'/q.py.cgi',                   self.path)
-        print self.path, self.oldpath
 
     def authorize(self):
         authorization = self.headers.getheader("authorization")
