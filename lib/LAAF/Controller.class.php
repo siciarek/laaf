@@ -48,9 +48,8 @@ class LAAF_Format
 
 class LAAF_Controller
 {
-    public function actionIndex($request)
+    public function actionIndex($request, $ext = array(), $auth = array())
     {
-
         if (!empty($request)) {
 
             $format   = new LAAF_Format();
@@ -72,10 +71,21 @@ class LAAF_Controller
 
                 $input = $reader->read($request);
                 $dispatcher = new LAAF_Dispatcher();
-                $frame  = $dispatcher->assignService($input["msg"], $input["data"]);
+
+                if($auth !== array()) {
+                    $input["auth"] = $auth;
+                }
+
+                if($ext !== array()) {
+                    $input["ext"] = $ext;
+                }
+
+                $frame  = $dispatcher->assignService($input);
                 $output = $writer->format($frame);
                 $mimetype = $writer->getMimeType();
+
             } catch (Exception $e) {
+
                 $msg             = strip_tags($e->getMessage());
                 $data            = array();
                 $data["message"] = $msg;

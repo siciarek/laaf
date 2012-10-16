@@ -14,4 +14,5 @@ before_script:
   - chmod 777 web/travis.php
   - python bin/httpd.py 8888 2> /dev/null &
   - sleep 3
-  - cd ./test
+
+script: phpunit -c test

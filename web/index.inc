@@ -15,7 +15,7 @@ if(array_key_exists("PHP_AUTH_USER", $_SERVER) and array_key_exists("PHP_AUTH_PW
 }
 
 $controller = new LAAF_Controller();
-$response = $controller->actionIndex($request);
+$response = $controller->actionIndex($request, $ext, $auth);
 
 $header = "Content-type: " . $response["mimetype"];
 $output = $response["output"];

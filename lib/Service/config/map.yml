@@ -1,16 +1,27 @@
 ---
 ServiceMap:
+  ForYourEyesOnly:
+    credentials:
+      - privileged_user
+      - admin
+    class: User
+    method: getConfidentialData
+    params: ~
+    returns: ~
   SayHello:
+    credentials: ~
     class: User
     method: sayHello
     params: ~
     returns: ~
   UserList:
+    credentials: ~
     class: User
     method: getList
     params: ~
     returns: array
   UserDetails:
+    credentials: ~
     class: User
     method: getUser
     params: {id: "^[1-9]\d*$" }

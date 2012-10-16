@@ -15,6 +15,12 @@ class Config
 
     private static $service_map = null;
 
+    /**
+     * Extensions ie. limit, offset, sort, dir, template
+     * @var array
+     */
+    public static $ext = array();
+
     public static function getServiceMap()
     {
         if (self::$service_map === null) {
