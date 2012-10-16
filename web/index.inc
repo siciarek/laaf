@@ -22,8 +22,5 @@ $headers = array(
     "Content-length" => strlen($response["output"]),
 );
 
-foreach($headers as $name => $value) {
-    process_header($name, $value);
-}
-
+process_headers($headers);
 print($response["output"]);
