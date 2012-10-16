@@ -4,12 +4,9 @@
 
 $ext = $_GET;
 
-$auth = array(
-    "user" => null,
-    "pass" => null,
-);
+$auth = array();
 
-if(array_key_exists("PHP_AUTH_USER", $_SERVER) and array_key_exists("PHP_AUTH_PW", $_SERVER)) {
+if (array_key_exists("PHP_AUTH_USER", $_SERVER) and array_key_exists("PHP_AUTH_PW", $_SERVER)) {
     $auth["user"] = $_SERVER["PHP_AUTH_USER"];
     $auth["pass"] = $_SERVER["PHP_AUTH_PW"];
 }

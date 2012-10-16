@@ -4,6 +4,7 @@
 <phpunit
         strict="false"
         fork="false"
+        colors="true"
         stopOnFailure="false"
         syntaxCheck="true"
         backupGlobals="false"
