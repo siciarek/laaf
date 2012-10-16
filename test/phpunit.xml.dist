@@ -21,11 +21,6 @@
         </blacklist>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">../lib/LAAF</directory>
-            <!--<file>../lib/LAAF/Frame.class.php</file>-->
-            <!--<exclude>-->
-                <!--<directory suffix=".php">/path/to/files</directory>-->
-                <!--<file>/path/to/file</file>-->
-            <!--</exclude>-->
         </whitelist>
     </filter>
 
@@ -35,13 +30,13 @@
 
     <testsuites>
         <testsuite name="LAAF Server Functional Tests">
-            <file>functional/FunctionalControllerTest.php</file>
+            <file>./test/functional/FunctionalControllerTest.php</file>
         </testsuite>
         <testsuite name="LAAF Server Unit Tests">
-            <file>unit/FrameTest.php</file>
-            <file>unit/WritersTest.php</file>
-            <file>unit/ReadersTest.php</file>
-            <file>unit/ControllerTest.php</file>
+            <file>./test/unit/FrameTest.php</file>
+            <file>./test/unit/WritersTest.php</file>
+            <file>./test/unit/ReadersTest.php</file>
+            <file>./test/unit/ControllerTest.php</file>
         </testsuite>
     </testsuites>
 

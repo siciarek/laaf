@@ -17,6 +17,13 @@ if(array_key_exists("PHP_AUTH_USER", $_SERVER) and array_key_exists("PHP_AUTH_PW
 $controller = new LAAF_Controller();
 $response = $controller->actionIndex($request, $ext, $auth);
 
-$header = "Content-type: " . $response["mimetype"];
-$output = $response["output"];
-$length = strlen($output);
+$headers = array(
+    "Content-type" => $response["mimetype"],
+    "Content-length" => strlen($response["output"]),
+);
+
+foreach($headers as $name => $value) {
+    process_header($name, $value);
+}
+
+print($response["output"]);
